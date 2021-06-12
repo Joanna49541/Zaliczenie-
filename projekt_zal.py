@@ -54,6 +54,8 @@ class Game:
     def play_game(self):
         symbols = self.tab.symbols
         print("Zaczynamy rozgrywkę!")
+        scorep1 = 0
+        scorep2 = 0
         while len(symbols) >= 2:
             m = "Naciśnij q, aby wyjść " 
             response = input(m)
@@ -64,23 +66,18 @@ class Game:
             p1name = self.p1.name
             p2name = self.p2.name
             self.draw(p1name, p1symbol, p2name, p2symbol)
-
-            scorep1 = 0
-            scorep2 = 0
-            
-            if p1symbol == 0 and p2symbol == 1 or p1symbol == 1 and p2symbol == 2 or p1symbol == 2 and p2symbol == 0:
+     
+            if p1symbol.suit == 0 and p2symbol.suit == 1 or p1symbol.suit == 1 and p2symbol.suit == 2 or p1symbol.suit == 2 and p2symbol.suit == 0:
                 scorep2 += 1
                 # self.p1.wins += 1
                 #self.wins(self.p2.name)
-              
-              
-            elif p1symbol == 0 and p2symbol == 2 or p1symbol == 1 and p2symbol == 0 or p1symbol == 0 and p2symbol == 2:
+               
+            elif p1symbol.suit == 0 and p2symbol.siut == 2 or p1symbol.suit == 1 and p2symbol.suit == 0 or p1symbol.suit == 0 and p2symbol.suit == 2:
                 scorep1 += 1
                 #self.p1.wins += 1
                 #self.wins(self.p1.name)
-              
-              
-            elif p1symbol == 0 and p2symbol == 0 or p1symbol == 1 and p2symbol == 1 or p1symbol == 3 and p2symbol == 3:
+                 
+            elif p1symbol.suit == p2symbol.suit:
                 scorep1 += 1
                 scorep2 += 1
                 #self.p1.wins += 1
