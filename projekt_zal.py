@@ -1,3 +1,4 @@
+# Joanna Ignatowska ININ4PR2.1 nr albumu 49541
 import random
 
 class Symbol:
@@ -46,17 +47,17 @@ class Game:
         d = d.format(p1name, p1symbol, p2name, p2symbol)  
         print(d)
 
-    def wins(self, winner):
-        w = "Tę rundę wygrywa: {}"
-        w = w.format(winner)
-        print(w)
+    #def wins(self, winner):
+       # w = "Tę rundę wygrywa: {}"
+       # w = w.format(winner)
+        #print(w)
 
     def play_game(self):
         symbols = self.tab.symbols
         print("Zaczynamy rozgrywkę!")
         scorep1 = 0
         scorep2 = 0
-        while len(symbols) >= 2:
+        while len(symbols) >= 0:
             m = "Naciśnij q, aby wyjść " 
             response = input(m)
             if response == 'q':
@@ -67,12 +68,12 @@ class Game:
             p2name = self.p2.name
             self.draw(p1name, p1symbol, p2name, p2symbol)
      
-            if p1symbol.suit == 0 and p2symbol.suit == 1 or p1symbol.suit == 1 and p2symbol.suit == 2 or p1symbol.suit == 2 and p2symbol.suit == 0:
+            if (p1symbol.suit == 0 and p2symbol.suit == 1) or (p1symbol.suit == 1 and p2symbol.suit == 2) or (p1symbol.suit == 2 and p2symbol.suit == 0):
                 scorep2 += 1
                 # self.p1.wins += 1
                 #self.wins(self.p2.name)
                
-            elif p1symbol.suit == 0 and p2symbol.siut == 2 or p1symbol.suit == 1 and p2symbol.suit == 0 or p1symbol.suit == 0 and p2symbol.suit == 2:
+            elif (p1symbol.suit == 0 and p2symbol.suit == 2) or (p1symbol.suit == 1 and p2symbol.suit == 0) or (p1symbol.suit == 2 and p2symbol.suit == 1):
                 scorep1 += 1
                 #self.p1.wins += 1
                 #self.wins(self.p1.name)
@@ -98,5 +99,4 @@ class Game:
        # return "jest remis!"    
 
 game = Game()
-game.play_game()                  
-
+game.play_game()  
